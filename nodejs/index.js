@@ -5,6 +5,8 @@ const ca = './rds-combined-ca-bundle.pem';
 const url = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/?ssl=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false`;
 
 (async () => {
+  console.log("Connecting to:", url);
+
   client = await MongoClient.connect(
     url,
     {
